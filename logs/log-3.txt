@@ -1,0 +1,14 @@
+1566631115601|INFO|org.arl.fjage.shell.GroovyBoot@1:main|fjage Build: fjage-1.4.2/19-04-2018_20:59:32
+1566631116102|INFO|org.arl.fjage.shell.GroovyBoot@1:main|Running cls://org.arl.unet.sim.initrc
+1566631116106|INFO|org.arl.fjage.shell.GroovyScriptEngine@14:call|RUN: org.arl.unet.sim.initrc
+1566631116129|INFO|org.arl.fjage.remote.MessageAdapterFactory@14:<clinit>|Groovy detected, using GroovyClassLoader
+1566631116214|INFO|org.arl.fjage.shell.GroovyBoot@1:main|Running sim/simple_sim.groovy
+1566631116215|INFO|org.arl.fjage.shell.GroovyScriptEngine@14:call|RUN: D:\UnetStack\Test\sim\simple_sim.groovy
+1566631116375|WARNING|org.arl.fjage.shell.GroovyScriptEngine@14:error|Groovy script execution failed
+
+groovy.lang.MissingPropertyException: No such property: RealTimePlatform for class: simple_sim
+Stack trace: ...
+   org.arl.fjage.shell.BaseGroovyScript.propertyMissing(BaseGroovyScript.groovy:594) ...
+   simple_sim.run(simple_sim.groovy:4) ...
+   org.arl.fjage.shell.GroovyScriptEngine$4.call(GroovyScriptEngine.java:264) ...
+
