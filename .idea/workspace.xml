@@ -2,33 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="582bb65d-465e-4649-90f1-356ce9caddbb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/prajval.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/fshrc.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/setup.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/log-10.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/log-11.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/log-12.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/log-13.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/log-14.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/log-15.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/log-16.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/log-8.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/log-9.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/app.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/app.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/prajval.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/prajval.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/log-0.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/log-0.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/log-0.txt.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/log-1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/log-1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/log-2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/log-2.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/log-3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/log-3.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/log-4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/log-4.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/log-5.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/log-5.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/log-6.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/log-6.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/log-7.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/log-7.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Test/new_routing_agent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/new_routing_agent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sim/simple_sim.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/sim/simple_sim.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dr.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/new_routing_agent.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/new_routing_agent.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/new_routing_agent.groovy" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

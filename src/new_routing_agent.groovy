@@ -11,13 +11,13 @@ class new_routing_agent extends UnetAgent {
         router.send new RouteDiscoveryNtf(to: to, nextHop: via)
     }
 
-    void delroutes() {
-        router.removeRoute = -1
+    void delroutesto(int x) {
+        router.removeRoutesTo = x
     }
 
     void routeDynamically(){
         while(1){
-            delroutes()
+            delroutesto(1)
             if(flag){
                 addroute 1, 2
             }

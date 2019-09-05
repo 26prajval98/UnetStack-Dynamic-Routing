@@ -3,6 +3,7 @@
     <words>
       <w>addr</w>
       <w>addroute</w>
+      <w>delroutes</w>
     </words>
   </dictionary>
 </component>
