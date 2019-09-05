@@ -11,24 +11,6 @@ class new_routing_agent extends UnetAgent {
         router.send new RouteDiscoveryNtf(to: to, nextHop: via)
     }
 
-    void delroutesto(int x) {
-        router.removeRoutesTo = x
-    }
-
-    void routeDynamically(){
-        while(1){
-            delroutesto(1)
-            if(flag){
-                addroute 1, 2
-            }
-            else{
-                addroute 1,3
-            }
-            flag = !flag
-            sleep(10000)
-        }
-    }
-
     void startup() {
         flag = false
         def phy = agentForService Services.PHYSICAL
@@ -40,29 +22,21 @@ class new_routing_agent extends UnetAgent {
         def nodeInfo = agentForService Services.NODE_INFO
         addr = nodeInfo.address
 
-        switch (addr){
+        switch (addr) {
             case 1:
-                addroute 1, 1
+                addroute 3, 2
                 break
             case 2:
-                addroute 1, 4
-                break
-            case 3:
-                addroute 1, 4
-                break
-            case 4:
-                addroute 1, 1
-                break
-            case 5:
-                routeDynamically()
+                addroute 3, 3
                 break
             default:
-                addroute 1, 1
                 break
         }
     }
 
     void processMessage(Message msg) {
-
+        if (msg instanceof DatagramNtf && msg.protocol == PING_PROTOCOL){
+            send new DatagramReq(recipient: msg.sender, to: msg.from, protocol: Protocol.DATA)
+        }
     }
 }

@@ -1,46 +1,34 @@
+import org.arl.unet.sim.channels.*
 import org.arl.fjage.*
-import org.arl.unet.sim.MotionModel
-import static org.arl.unet.Services.*
+import org.arl.unet.net.*
 
-trackAuvLocation = {
-    def nodeInfo = agentForService NODE_INFO
-    trace.moved(nodeInfo.address, nodeInfo.location, null)
-    add new TickerBehavior(10000, {
-        trace.moved(nodeInfo.address, nodeInfo.location, null)
-    })
-}
-def speed_threshold = 4;
-speed_threshold = Math.min(speed_threshold,5).mps
+import org.arl.unet.shell.*
 
-def speed_increment = 2.mps;
-def time_increment = 2.minutes;
+platform = RealTimePlatform
+channel.model = ProtocolChannelModel
 
-def speed_initial = 0.mps;
-def time_initial = 0.minutes;
+channel.soundSpeed = 1500.mps          // c
+channel.communicationRange = 100.m     // Rc
 
-def const_time = Math.min(10.minutes - (2*speed_threshold).minutes - time_increment, 0)
-println const_time
-def motionArray = []
+// run the simulation infinately
+simulate  {
+    // Destination node
+    node '1', remote: 1101, address: 1, location: [ 0.m, 0.m, 0.m], shell: true, stack: { container ->
+        container.add 'new_routing_agent', new new_routing_agent();
+        container.add 'routing', new Router();
+        container.add 'rdp', new RouteDiscoveryProtocol();
+    }
 
-(speed_threshold/speed_increment).times{
-    speed_initial += speed_increment
-    motionArray << [time: time_initial, speed: Math.min(speed_initial, speed_threshold)]
-    time_initial += time_increment
-}
+    node '2', remote: 1102, address: 2, location: [ 0.m, 0.m, -75.m], shell: 5102, stack: { container ->
+        container.add 'new_routing_agent', new new_routing_agent();
+        container.add 'routing', new Router();
+        container.add 'rdp', new RouteDiscoveryProtocol();
+    }
 
-motionArray << [time: time_initial, speed: speed_threshold]
-time_initial += const_time
-
-(speed_threshold/speed_increment).times{
-    motionArray << [time: time_initial, speed: Math.max(speed_initial, 0.mps)]
-    time_initial += time_increment
-    speed_initial -= speed_increment
-}
-
-println motionArray
-
-simulate 10.minutes, {
-    def n = node('AUV-1', location: [0.m, 0.m, 0.m], mobility: true)
-    n.startup = trackAuvLocation
-    n.motionModel = motionArray
+    // neighbor node for node 5, and will be a next node for node 5 during routing
+    node '3', remote: 1103, address: 3, location: [0.m, 0.m, -90.m], shell: 5103, stack: { container ->
+        container.add 'new_routing_agent', new new_routing_agent();
+        container.add 'routing', new Router();
+        container.add 'rdp', new RouteDiscoveryProtocol();
+    }
 }
