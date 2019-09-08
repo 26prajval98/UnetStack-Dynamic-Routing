@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="582bb65d-465e-4649-90f1-356ce9caddbb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/sim/graph_plot.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sim/graph_plot.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/sim/graph_plot.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sim/simple_sim.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/sim/simple_sim.groovy" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -13,6 +13,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Ping" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1PddSgZ3amIDzF6W2H2DFlbY3Od" />
