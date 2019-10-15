@@ -19,6 +19,7 @@ simulate  {
         container.add 'rdp', new RouteDiscoveryProtocol();
     }
 
+    // neighbor node for node 5, and will be a next node for node 5 during routing
     node '2', remote: 1102, address: 2, location: [ 0.m, 0.m, -75.m], shell: 5102, stack: { container ->
         container.add 'new_routing_agent', new new_routing_agent();
         container.add 'routing', new Router();
@@ -32,7 +33,7 @@ simulate  {
         container.add 'rdp', new RouteDiscoveryProtocol();
     }
 
-//Neighbor node for node 5 ,but not a next node for node 5
+//Neighbor node for node 2 and 3 ,but not a next node for node 5
     node '4', remote: 1104, address: 4, location: [0.m, 0.m, -150.m], shell: 5104, stack: {container ->
         container.add 'new_routing_agent', new new_routing_agent();
         container.add 'routing', new Router();
