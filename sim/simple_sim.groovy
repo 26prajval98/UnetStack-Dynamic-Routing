@@ -10,33 +10,37 @@ trackAuvLocation = {
         trace.moved(nodeInfo.address, nodeInfo.location, null)
     })
 }
-def speed_threshold = 5
-speed_threshold = Math.min(speed_threshold,5).mps
+def speed_threshold = 3.0.mps
 
-def speed_increment = 2.mps
-def time_increment = 2.minutes
+def speed_increment = 2.0.mps
+def time_increment = 2.0.minutes
 
-def speed_initial = 0.mps
-def time_initial = 0.minutes
-def time_final = 16.minutes
+def speed_initial = 0.0.mps
+def time_initial = 0.0.minutes
+def time_final = 16.0.minutes
 
-//def const_time = Math.min(10.minutes - (2*speed_threshold).minutes - time_increment, 0)
-//println const_time
 def motionArray = []
 
+def steps = 1.0
+
+time_increment = time_increment / steps
+speed_increment = speed_increment / steps
+
 Math.ceil(speed_threshold/speed_increment).times{
-    motionArray << [time: time_initial, speed: speed_initial]
-    time_initial += time_increment
-    speed_initial += speed_increment
+    if(speed_initial < speed_threshold){
+        motionArray << [time: time_initial, speed: speed_initial]
+        time_initial += time_increment
+        speed_initial += speed_increment
+    }
 }
 
 speed_initial = speed_threshold
 motionArray << [time: time_initial, speed: speed_initial]
-time_initial += time_increment
+time_initial += time_increment * steps
 speed_initial -= speed_increment
 
 (Math.max(0, Math.ceil((time_final-time_initial)/time_increment))).times{
-    motionArray << [time: time_initial, speed: Math.max(speed_initial, 0.mps)]
+    motionArray << [time: time_initial, speed: Math.max(speed_initial, 0.0.mps)]
     time_initial += time_increment
     speed_initial -= speed_increment
 }
