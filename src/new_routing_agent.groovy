@@ -7,25 +7,50 @@ class new_routing_agent extends UnetAgent {
     int addr
     def flag
 
+    final static int PING_PROTOCOL = Protocol.USER
+
     void addroute(int to, int via) {
         router.send new RouteDiscoveryNtf(to: to, nextHop: via)
     }
 
-    void delroutesto(int x) {
-        router.removeRoutesTo = x
+    void delroutes() {
+        router.removeRoute = -1
     }
 
-    void routeDynamically(){
+    void routeDynamically(addr){
         while(1){
-            delroutesto(1)
-            if(flag){
-                addroute 1, 2
-            }
-            else{
-                addroute 1,3
+            delroutes()
+            switch (addr){
+                case 4:
+                    if(flag){
+                        addroute 1, 1
+                        addroute 2, 2
+                        addroute 5, 2
+                    }
+                    else{
+                        addroute 1, 1
+                        addroute 3, 3
+                        addroute 5, 3
+                    }
+                    break
+                case 5:
+                    if(flag){
+                        addroute 1, 2
+                        addroute 2, 2
+                        addroute 4, 2
+                    }
+                    else{
+                        addroute 1, 3
+                        addroute 3, 3
+                        addroute 4, 3
+                    }
+                    break
+                default:
+                    addroute 1, 1
+                    break
             }
             flag = !flag
-            sleep(10000)
+            sleep(30000)
         }
     }
 
@@ -43,33 +68,22 @@ class new_routing_agent extends UnetAgent {
         switch (addr){
             case 1:
                 addroute 2, 4
-//                addroute 3, 4
+                addroute 3, 4
                 addroute 4, 4
                 addroute 5, 4
                 break
             case 2:
                 addroute 1, 4
                 addroute 4, 4
-                addroute 5, 4
+                addroute 5, 5
                 break
             case 3:
                 addroute 1, 4
                 addroute 4, 4
-                addroute 5, 4
-                break
-            case 4:
-                addroute 1, 1
-                addroute 2, 2
-                addroute 5, 2
-                break
-            case 5:
-//                routeDynamically()
-                addroute 1, 2
-                addroute 2, 2
-                addroute 4, 2
+                addroute 5, 5
                 break
             default:
-                addroute 1, 1
+                routeDynamically(addr)
                 break
         }
     }

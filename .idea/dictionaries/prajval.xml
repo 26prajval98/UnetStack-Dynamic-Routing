@@ -4,6 +4,7 @@
       <w>addr</w>
       <w>addroute</w>
       <w>delroutes</w>
+      <w>delroutesto</w>
     </words>
   </dictionary>
 </component>
