@@ -24,9 +24,8 @@ subscribe link
 
 
 // add a closure to define the 'ping' command
-ping = { addr, count = 1 ->
-  println "PING $addr"
-  count.times {
+ping = { addr ->
+  	println "PING $addr"
     router << new DatagramReq(to: addr, protocol: Protocol.USER)
     def txTime = time()
     def rxNtf = receive({ it instanceof DatagramNtf && it.from == addr}, 20000)
@@ -35,5 +34,4 @@ ping = { addr, count = 1 ->
       println "Response from ${rxNtf.from} to ${rxNtf.to}: time = ${rxTime - txTime} ms"
     else
       println "Request timeout"
-  }
 }
