@@ -75,6 +75,7 @@ class new_routing_agent extends UnetAgent {
     }
 
     void processMessage(Message msg) {
-
+        if (msg instanceof DatagramNtf && msg.protocol == PING_PROTOCOL)
+            router.send new DatagramReq(recipient: msg.sender, to: msg.from, protocol: Protocol.DATA)
     }
 }
