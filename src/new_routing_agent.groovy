@@ -7,6 +7,8 @@ class new_routing_agent extends UnetAgent {
     int addr
     def flag
 
+    final static int PING_PROTOCOL = Protocol.USER
+
     void addroute(int to, int via) {
         router.send new RouteDiscoveryNtf(to: to, nextHop: via)
     }
@@ -24,10 +26,10 @@ class new_routing_agent extends UnetAgent {
 
         switch (addr) {
             case 1:
-                addroute 3, 2
+                addroute 2, 2
                 break
             case 2:
-                addroute 3, 3
+                addroute 1, 1
                 break
             default:
                 break

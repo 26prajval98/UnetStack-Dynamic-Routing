@@ -1,4 +1,5 @@
 import org.arl.unet.sim.channels.*
+import org.arl.unet.link.ReliableLink
 import org.arl.fjage.*
 import org.arl.unet.net.*
 
@@ -9,26 +10,24 @@ channel.model = ProtocolChannelModel
 
 channel.soundSpeed = 1500.mps          // c
 channel.communicationRange = 100.m     // Rc
+channel.detectionRange = 110.m
+channel.interferenceRange = 200.m
 
 // run the simulation infinately
 simulate  {
     // Destination node
     node '1', remote: 1101, address: 1, location: [ 0.m, 0.m, 0.m], shell: true, stack: { container ->
         container.add 'new_routing_agent', new new_routing_agent();
-        container.add 'routing', new Router();
-        container.add 'rdp', new RouteDiscoveryProtocol();
+        container.add 'link', new ReliableLink()
+        container.add 'router', new Router()
+        container.add 'rdp', new RouteDiscoveryProtocol()
+        container.shell.addInitrc "${script.parent}/../etc/fshrc.groovy"
     }
 
     node '2', remote: 1102, address: 2, location: [ 0.m, 0.m, -75.m], shell: 5102, stack: { container ->
         container.add 'new_routing_agent', new new_routing_agent();
-        container.add 'routing', new Router();
-        container.add 'rdp', new RouteDiscoveryProtocol();
-    }
-
-    // neighbor node for node 5, and will be a next node for node 5 during routing
-    node '3', remote: 1103, address: 3, location: [0.m, 0.m, -90.m], shell: 5103, stack: { container ->
-        container.add 'new_routing_agent', new new_routing_agent();
-        container.add 'routing', new Router();
-        container.add 'rdp', new RouteDiscoveryProtocol();
+        container.add 'link', new ReliableLink()
+        container.add 'router', new Router()
+        container.add 'rdp', new RouteDiscoveryProtocol()
     }
 }
