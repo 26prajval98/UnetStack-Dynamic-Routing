@@ -28,7 +28,7 @@ speed_increment = speed_increment / steps
 
 Math.ceil(speed_threshold/speed_increment).times{
     if(speed_initial < speed_threshold){
-        motionArray << [time: time_initial, speed: speed_initial]
+		motionArray << [time: time_initial, speed: speed_initial]
         time_initial += time_increment
         speed_initial += speed_increment
     }
@@ -39,7 +39,7 @@ motionArray << [time: time_initial, speed: speed_initial]
 time_initial += time_increment * steps
 speed_initial -= speed_increment
 
-(Math.max(0, Math.ceil((time_final-time_initial)/time_increment))).times{
+( Math.max (0, Math.ceil ( ( time_final - time_initial ) / time_increment ) ) ).times{
     motionArray << [time: time_initial, speed: Math.max(speed_initial, 0.0.mps)]
     time_initial += time_increment
     speed_initial -= speed_increment
