@@ -42,19 +42,31 @@ class new_routing_agent extends UnetAgent {
 
         switch (addr){
             case 1:
-                addroute 1, 1
+                addroute 2, 4
+//                addroute 3, 4
+                addroute 4, 4
+                addroute 5, 4
                 break
             case 2:
                 addroute 1, 4
+                addroute 4, 4
+                addroute 5, 4
                 break
             case 3:
                 addroute 1, 4
+                addroute 4, 4
+                addroute 5, 4
                 break
             case 4:
                 addroute 1, 1
+                addroute 2, 2
+                addroute 5, 2
                 break
             case 5:
-                routeDynamically()
+//                routeDynamically()
+                addroute 1, 2
+                addroute 2, 2
+                addroute 4, 2
                 break
             default:
                 addroute 1, 1
